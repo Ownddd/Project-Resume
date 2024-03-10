@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        header {
+            background-color: #2c3e50; /* Dark blue color */
+            color: #ecf0f1; /* Light gray color */
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+            border-radius: 8px;
+            transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
+            position: relative;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            display: inline-block;
+            margin: 0 10px;
+            background-color: #3498db; /* Blue color */
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.5s;
+        }
+
+        button:hover {
+            background-color: #2980b9; /* Darker blue color on hover */
+        }
+
+        button:active {
+            transform: translateY(-5px); /* Increased upward movement when clicked */
+        }
+
+        .back-button {
+            background-color: #e74c3c; /* Red color */
+        }
+
+        .back-button:hover {
+            background-color: #c0392b; /* Darker red color on hover */
+        }
+
+        /* Added styles for dark mode */
+        body.dark-mode {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        section.dark-mode {
+            background-color: #34495e; /* Darker background for dark mode */
+            color: #ecf0f1;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>About Me</h1>
+</header>
+
+<section>
+    <h2>Introduction</h2>
+    <p>I first learned how to code in highschool in a computer science class and overtime I gained interest in coding since I was able to make what ever I wanted. Therefore my skill in html and css is a lot more refined than javascript which I wonly started learning about a month ago.</p>
+
+    <h2>Skills</h2>
+    <ul>
+        <li>Web Development</li>
+        <li>JavaScript</li>
+        <li>HTML & CSS</li>
+        <!-- Add more skills as needed -->
+    </ul>
+
+    <h2>Background</h2>
+    <p>I was born in New Hampshire and moved to Florida when I was 5 and have lived there since. During my middle school years (7th and 8th grade) I moved to Israel for a change of pace where I learned hebrew and started to feel a connection to the country. I did move back for 4 years of highscool before going back to Israel for the gap year that I am currently on.</p>
+
+    <div class="button-container">
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <form>
+            <input type="button" value="Back" onclick="history.go(-1)">
+        </form>
+        <!-- <button class="back-button" onclick="window.location.href='app.slack.com/client/T7P4CAKAS/C06DRB67QE9'">Back</button> -->
+        
+    </div>
+</section>
+
+<script>
+    function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle("dark-mode");
+    }
+    
+    
+</script>
+
+
+</body>
+</html>

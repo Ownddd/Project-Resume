@@ -1,0 +1,15 @@
+
+
+
+body {
+    opacity: 0; /* Set initial opacity to 0 for the fadeIn animation */
+}
+
+.img {
+    height: 10%
+}
+
+#carousel{
+    text-align: center;
+    justify-content: center ;
+}

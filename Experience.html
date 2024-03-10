@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swag Webpage</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            transition: background 0.5s ease-in-out;
+            background: linear-gradient(45deg, #ff8c00, #9932cc);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #back {
+            display: inline-block;
+            cursor: pointer;
+            background-color: #61dafb;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #back:hover {
+            background-color: #218cff;
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        #logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            animation: rotateLogo 4s infinite linear;
+        }
+
+        @keyframes rotateLogo {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            mix-blend-mode: screen;
+        }
+
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        #message {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #61dafb;
+            animation: pulseMessage 2s infinite;
+        }
+
+        @keyframes pulseMessage {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="back" onclick="goBack()">Back</button>
+
+    <img id="logo" src="https://st.depositphotos.com/1001911/1222/v/950/depositphotos_12221489-stock-illustration-big-smile-emoticon.jpg" alt="Logo">
+
+    <h1>Welcome to my happy place</h1>
+
+    <div id="animated-background"></div>
+    <div id="particles"></div>
+
+    <p id="message">Jake Paul got nothing on Mike Tyson</p>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function getGreeting() {
+            const hour = new Date().getHours();
+            if (hour < 12) return 'Good Morning';
+            if (hour < 18) return 'Good Afternoon';
+            return 'Good Evening';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const greeting = getGreeting();
+            document.body.innerHTML += `<h2>${greeting}, Real Human People!</h2>`;
+
+            const animatedBackground = document.getElementById('animated-background');
+            const colors = ['#61dafb', '#ff8c00', '#32cd32', '#9932cc', '#ff1493'];
+
+            setInterval(function () {
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                animatedBackground.style.backgroundColor = randomColor;
+            }, 3000);
+
+            // Particle Effect
+            const particles = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                particles.appendChild(particle);
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('mousemove', function (e) {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach(particle => {
+                const deltaX = e.clientX - particle.offsetLeft - particle.clientWidth / 2;
+                const deltaY = e.clientY - particle.offsetTop - particle.clientHeight / 2;
+                const angle = Math.atan2(deltaY, deltaX);
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                const offsetX = Math.cos(angle) * distance * 0.02;
+                const offsetY = Math.sin(angle) * distance * 0.02;
+
+                particle.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            });
+        });
+    </script>
+</body>
+
+</html>

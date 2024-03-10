@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #3498db, #e74c3c);
+            animation: gradientAnimation 10s infinite alternate-reverse;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #emailButton {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+
+        #githubButton {
+            background-color: #333;
+            color: #fff;
+        }
+
+        #backButton {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contact Me</h1>
+
+    <button id="emailButton" class="button" onclick="openEmail()">Send Email</button>
+    <button id="githubButton" class="button" onclick="openGitHub()">Visit GitHub</button>
+    <button id="backButton" class="button" onclick="goBack()">Go Back</button>
+
+    <script>
+        function openEmail() {
+            var emailLink = document.createElement('a');
+            emailLink.href = 'mailto:jbeckermanj@gmail.com';
+            emailLink.click();
+        }
+
+        function openGitHub() {
+            window.open('https://github.com/Ownddd', '_blank');
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>
